@@ -4,7 +4,7 @@ import "./login.css";
 
 import { useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "firebase/config";
+import { db } from "../firebase/config";
 
 export default function Login() {
   const [login, setLogin] = useState(false);
@@ -21,6 +21,7 @@ export default function Login() {
         const userData = doc.data();
         if (userData.username === username && userData.password === password) {
           setLogin(true);
+          console.log("logged in");
         } else {
           alert("Invalid username or password");
         }
