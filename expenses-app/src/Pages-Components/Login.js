@@ -37,28 +37,37 @@ export default function Login() {
         <h1>Login</h1>
         <form>
           <div>
-            <label>Username: </label>
             <input
+              className="inputBox"
               type="text"
               value={username}
+              placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
             ></input>
           </div>
           <div>
-            <label>Password: </label>
             <input
+              className="inputBox"
               type="text"
               value={password}
+              placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
-          <button onClick={Validate}>Login</button>
+          <button className="loginBtn" onClick={Validate}>
+            Login
+          </button>
         </form>
+        <p id="regText">
+          Don't have an account? <button id="regBtn">Sign Up</button>
+        </p>
       </div>
       <div>
         <img src={logo} alt="logo" className="loginLogo" />
-        <h1 className="name">We Find Ways</h1>
-        <p>Save More, Earn More, Spend Less</p>
+        <h1 className="name">
+          Tr<span>o</span>tter
+        </h1>
+        <p>Your Little Treasure Tracker.</p>
       </div>
     </section>
   );

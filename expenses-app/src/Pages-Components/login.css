@@ -9,6 +9,7 @@
 }
 
 .login {
+  width: 350px;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 16px;
@@ -18,6 +19,102 @@
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
+h1 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.inputBox {
+  outline: none;
+  border: none;
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+  font-size: 14px;
+  color: #000000;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 0.8rem;
+  width: 95%;
+  background: #faf8f6;
+}
+
+.inputBox::placeholder {
+  font-family: cursive;
+}
+
+.inputBox:focus {
+  background-color: #fff;
+  box-shadow: 2px 3px 0 #83b4ff;
+}
+
+.loginBtn {
+  width: 100px;
+  position: relative;
+  font-size: 1em;
+  color: #0d0d0d;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #faf8f6;
+  box-shadow: 2px 3px #83b4ff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 1rem 0;
+  z-index: 1;
+}
+
+.loginBtn:hover{
+  box-shadow: 2px 3px #8d5700;
+}
+
+.loginBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffcf40;
+  border-radius: 4px;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease-in-out;
+}
+
+.loginBtn:hover::before {
+  transform: scaleX(1);
+}
+
+.loginBtn:active {
+  transform: translateX(3px);
+  transform: translateY(2px);
+  box-shadow: -2px -3px #8d5700;
+  color: #8d5700;
+}
+
+#regText {
+  margin-top: 0.8rem;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+#regBtn {
+  border: none;
+  text-decoration: underline;
+  color: #83b4ff;
+  cursor: pointer;
+}
+
+#regBtn:hover{
+  color: #6986bc;
+}
+
 .loginLogo {
-  width: 140px;
+  width: 200px;
+}
+
+span {
+  color: #ffcf40;
 }
