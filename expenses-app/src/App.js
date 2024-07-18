@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import Login from "./Pages-Components/Login";
 import logo from "./Assets/logo.svg";
 
