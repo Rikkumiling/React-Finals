@@ -57,8 +57,8 @@ export default function Login() {
       </div>
       <div>
         <img src={logo} alt="logo" className="loginLogo" />
-        <h1 className="name">Name of app</h1>
-        <p>tagline</p>
+        <h1 className="name">We Find Ways</h1>
+        <p>Save More, Earn More, Spend Less</p>
       </div>
     </section>
   );
