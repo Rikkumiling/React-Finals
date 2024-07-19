@@ -1,10 +1,12 @@
 import React from "react";
 import logo from "../Assets/logo.svg";
-import "./login.css";
 
 import { useState, useRef } from "react";
 import { useNavigate, NavLink } from "react-router-dom"; // do 'npm install react-router-dom' in terminal
 import { login } from "../Services/AuthService";
+
+//styling
+import "./login.css";
 
 export default function Login() {
   const email = useRef(); // Test email: Rikku@email.com
@@ -58,10 +60,10 @@ export default function Login() {
           {error && <p>{error}</p>}
         </form>
         <p id="regText">
-          Don't have an account? <NavLink to="/Register"> Register </NavLink>
+          Don't have an account? <NavLink id="regBtn" to="/Register"> Register </NavLink>
         </p>
       </div>
-      <div>
+      <div className="loginText">
         <img src={logo} alt="logo" className="loginLogo" />
         <h1 className="name">
           Tr<span>o</span>tter

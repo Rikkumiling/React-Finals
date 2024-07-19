@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import React from "react";
 import { UserProvider } from "./Contexts/UserContext";
 import { BrowserRouter } from "react-router-dom";

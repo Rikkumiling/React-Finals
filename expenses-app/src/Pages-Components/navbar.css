@@ -1,3 +1,36 @@
-* {
-  color: black;
+.navContainer {
+  background-color: #1A2130;
+}
+
+.navBar {
+  height: 5rem;
+  width: 100vw;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.title {
+  display: flex;
+}
+
+.title h1 {
+  font-size: 2rem;
+  padding-left: 1rem;
+  align-content: center;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 4rem;
 }

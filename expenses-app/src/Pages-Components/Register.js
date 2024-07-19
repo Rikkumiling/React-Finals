@@ -1,9 +1,11 @@
 import React from "react";
-import "./login.css";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { create_user } from "../Services/AuthService";
+
+//styling
+import "./login.css";
 
 export default function Register() {
   const emailRef = useRef();
@@ -27,8 +29,9 @@ export default function Register() {
   };
 
   return (
-    <section>
-      <h1>Login</h1>
+    <section className="content">
+      <h1>Register to Tr<span>o</span>tter</h1>
+      <div>
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -54,9 +57,10 @@ export default function Register() {
         )}
         {error && <p>{error}</p>}
       </form>
-      <p>
-        Go back to <NavLink to="/Login">Login</NavLink>
+      <p id="regText">
+        Go back to <NavLink id="regBtn" to="/Login">Login</NavLink>
       </p>
+      </div>
     </section>
   );
 }
