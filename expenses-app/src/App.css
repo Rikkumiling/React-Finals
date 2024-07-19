@@ -12,5 +12,10 @@ Black: #000000
 */
 
 .app {
+  height: 100vh;
+  background-image: url("../src/Assets/bg2.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
   text-align: center;
 }

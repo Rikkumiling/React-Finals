@@ -1,8 +1,10 @@
 import React from "react";
-
 import { logout } from "../Services/AuthService";
 import { useNavigate } from "react-router-dom";
-import "./home.css";
+
+import dp from "../Assets/profile.svg";
+
+import "./profile.css";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -11,11 +13,19 @@ export default function Profile() {
     navigate("/login");
   };
   return (
-    <div>
-      <p>Profile</p>
-      <button className="btn" onClick={handleLogout}>
-        Logout
-      </button>
-    </div>
+    <section className="profilePage">
+      <div>
+        <p>User Profile</p>
+        <img src={dp} id="dp" />
+        <p>Username</p>
+      </div>
+      <div>
+        <p>Budget</p>
+        <p>Update Budget</p>
+        <button className="btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+    </section>
   );
 }

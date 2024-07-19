@@ -1,0 +1,14 @@
+.profilePage {
+  display: flex;
+  padding-top: 3rem;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+}
+
+#dp {
+  width: 120px;
+  padding: 0.8rem;
+  background-color: #fff;
+  border-radius: 50%;
+}

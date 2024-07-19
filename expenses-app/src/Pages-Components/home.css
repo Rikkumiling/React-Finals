@@ -1,10 +1,8 @@
 .homeContent {
   display: flex;
   height: 100vh;
+  margin: 2.5rem;
   text-align: center;
-  background-image: url("../Assets/bg2.svg");
-  background-size: cover;
-  background-position: center;
 }
 
 .budgetContainer {
@@ -12,13 +10,113 @@
   color: #1a2130;
 }
 
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(131, 181, 255, 0.694);
+  padding-bottom: 2rem;
+  transition: 0.3s;
+}
+
+.glass#current:hover {
+  background: rgba(255, 255, 255, 0.461);
+  border: 4px solid rgba(131, 181, 255, 0.806);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+  #debitC {
+    font-size: 1.8rem;
+  }
+}
+
+.glass#total:hover {
+  background: rgba(255, 255, 255, 0.461);
+  border: 4px solid rgba(131, 181, 255, 0.806);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+}
+
+#current {
+  margin-bottom: 2rem;
+}
+
+.debit {
+  color: #084f09;
+}
+
+#debitC {
+  color: #157811;
+  font-size: 1.5rem;
+}
+
+#addExpBtn {
+  width: 140px;
+  margin-bottom: 1.5rem;
+}
+
 .expensesContainer {
   width: 70%;
+  margin-top: -1.8rem;
   color: #1a2130;
 }
 
 .budgetContainer h1,
 .expensesContainer h1 {
-    font-size: 1.3rem;
-    padding-top: 2rem;
+  font-size: 1.3rem;
+  padding-top: 2rem;
+}
+
+#expTitle {
+  font-size: 2rem;
+}
+
+.expense {
+  width: 90%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 3px solid rgba(131, 181, 255, 0.806);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  transition: 0.3s;
+}
+
+.expense:hover {
+  width: 92%;
+  background: rgba(255, 255, 255, 0.461);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  .expLabel {
+    font-size: larger;
+  }
+}
+
+.expLabel {
+  text-align: start;
+  margin-left: 2rem;
+}
+
+.expUD {
+  margin-right: 2rem;
+}
+
+.edtBtn {
+  width: 30px;
+  cursor: pointer;
+}
+
+.dltBtn {
+  border: none;
+  margin-left: 0.8rem;
+  cursor: pointer;
+}
+
+.dlt {
+  width: 30px;
 }
