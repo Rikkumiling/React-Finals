@@ -22,7 +22,7 @@ export default function Login() {
     login(email.current.value, password.current.value)
       .then(() => {
         setIsPending(false);
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         // Handle Errors here.
