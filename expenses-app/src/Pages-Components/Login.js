@@ -2,61 +2,60 @@ import React from "react";
 import logo from "../Assets/logo.svg";
 import "./login.css";
 
-import { useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase/config";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom"; // do 'npm install react-router-dom' in terminal
+import { login } from "../Services/AuthService";
 
 export default function Login() {
-  const [login, setLogin] = useState(false);
-  const [username, setUsername] = useState("");
-  //test username: Rikku
-  const [password, setPassword] = useState("");
-  //test password: Test
+  const email = useRef(); // Test email: Rikku@email.com
+  const password = useRef(); // Test Password: Testing
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const Validate = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const querySnapshot = await getDocs(collection(db, "accounts"));
-      querySnapshot.forEach((doc) => {
-        const userData = doc.data();
-        if (userData.username === username && userData.password === password) {
-          setLogin(true);
-          console.log("logged in");
-        } else {
-          alert("Invalid username or password");
-        }
+    setIsPending(true);
+    login(email.current.value, password.current.value)
+      .then(() => {
+        setIsPending(false);
+        navigate("/");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        setIsPending(false);
+        setError(error.message);
       });
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
   };
 
   return (
     <section className="content">
       <div className="login">
         <h1>Login</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <input
               className="inputBox"
-              type="text"
-              value={username}
-              placeholder="Username"
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              placeholder="Email"
+              ref={email}
             ></input>
           </div>
           <div>
             <input
               className="inputBox"
-              type="text"
-              value={password}
+              type="password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              ref={password}
             ></input>
           </div>
-          <button className="loginBtn" onClick={Validate}>
-            Login
-          </button>
+          {!isPending && <button className="btn">Login</button>}
+          {isPending && (
+            <button className="btn" disabled>
+              loading
+            </button>
+          )}
+          {error && <p>{error}</p>}
         </form>
         <p id="regText">
           Don't have an account? <button id="regBtn">Sign Up</button>

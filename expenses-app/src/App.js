@@ -1,13 +1,20 @@
-import "./app.css";
+import "./App.css";
 import React from "react";
-import Login from "./Pages-Components/Login";
+import { UserProvider } from "./Contexts/UserContext";
+import { BrowserRouter } from "react-router-dom";
+
+import NavRoutes from "./Pages-Components/NavRoutes";
 
 // Use camel case for naming classes. e.g.: btnLoginContainer
 
 function App() {
   return (
     <div className="app">
-      <Register />
+      <UserProvider>
+        <BrowserRouter>
+          <NavRoutes />
+        </BrowserRouter>
+      </UserProvider>
     </div>
   );
 }
