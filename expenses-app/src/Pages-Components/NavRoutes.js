@@ -15,7 +15,7 @@ import ExpenseForm from "./ExpenseForm";
 export default function NavRoutes() {
   const { user } = useContext(UserContext);
   const location = useLocation();
-  const isLoginPage = location.pathname === "/login";
+  const isLoginPage = location.pathname === ("/login" || "/Login");
   return (
     <>
       {!isLoginPage && <Navbar />}
