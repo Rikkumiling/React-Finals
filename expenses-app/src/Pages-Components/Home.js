@@ -6,6 +6,9 @@ import { getExpensesOnUID } from "../Services/ExpensesService";
 import { UserContext } from "../Contexts/UserContext";
 import Navbar from "./Navbar";
 
+// styling
+import "./home.css"
+
 export default function Home() {
   const user = useContext(UserContext);
   const navigate = useNavigate();
@@ -34,7 +37,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
+<div className="homeContent">
       <div className="budgetContainer">
         <h1>Current Budget</h1>
         {budget &&
@@ -43,6 +46,8 @@ export default function Home() {
               <p>{budget.initial_balance}</p>
             </div>
           ))}
+
+          <h1>Total Expenses</h1>
       </div>
 
       <div className="expensesContainer">
@@ -55,10 +60,9 @@ export default function Home() {
             </div>
           ))}
       </div>
+</div>
 
-      <button className="btn" onClick={handleLogout}>
-        Logout
-      </button>
     </>
+    
   );
 }

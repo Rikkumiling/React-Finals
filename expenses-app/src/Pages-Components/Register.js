@@ -30,36 +30,41 @@ export default function Register() {
 
   return (
     <section className="content">
-      <h1>Register to Tr<span>o</span>tter</h1>
+      <h1>
+        Register to Tr<span>o</span>tter
+      </h1>
       <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            className="inputBox"
-            type="email"
-            placeholder="email"
-            ref={emailRef}
-          ></input>
-        </div>
-        <div>
-          <input
-            className="inputBox"
-            type="password"
-            placeholder="Password"
-            ref={passwordRef}
-          ></input>
-        </div>
-        {!isPending && <button className="btn">sign up</button>}
-        {isPending && (
-          <button className="btn" disabled>
-            loading
-          </button>
-        )}
-        {error && <p>{error}</p>}
-      </form>
-      <p id="regText">
-        Go back to <NavLink id="regBtn" to="/Login">Login</NavLink>
-      </p>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input
+              className="inputBox"
+              type="email"
+              placeholder="email"
+              ref={emailRef}
+            ></input>
+          </div>
+          <div>
+            <input
+              className="inputBox"
+              type="password"
+              placeholder="Password"
+              ref={passwordRef}
+            ></input>
+          </div>
+          {!isPending && <button className="btn">sign up</button>}
+          {isPending && (
+            <button className="btn" disabled>
+              loading
+            </button>
+          )}
+          {error && <p>{error}</p>}
+        </form>
+        <p id="regText">
+          Go back to{" "}
+          <NavLink id="regBtn" to="/Login">
+            Login
+          </NavLink>
+        </p>
       </div>
     </section>
   );

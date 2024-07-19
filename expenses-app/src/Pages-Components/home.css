@@ -1,0 +1,24 @@
+.homeContent {
+  display: flex;
+  height: 100vh;
+  text-align: center;
+  background-image: url("../Assets/bg2.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+.budgetContainer {
+  width: 30%;
+  color: #1a2130;
+}
+
+.expensesContainer {
+  width: 70%;
+  color: #1a2130;
+}
+
+.budgetContainer h1,
+.expensesContainer h1 {
+    font-size: 1.3rem;
+    padding-top: 2rem;
+}

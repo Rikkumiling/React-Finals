@@ -22,12 +22,14 @@ export default function Navbar() {
       <div className="navBar">
         <div className="title">
           <img src={logo} alt="logo" className="logo" />
-          <h1>Trotter</h1>
+          <h1>
+            Tr<span>o</span>tter
+          </h1>
         </div>
         <div className="navLinks">
-          <NavLink to="/Home">Home</NavLink>
-          <NavLink to="/AboutUs">About Us</NavLink>
-          <Link onClick={handleLogout}>Logout</Link>
+          <NavLink className="listItem" to="/Home">Home</NavLink>
+          <NavLink className="listItem" to="/AboutUs">About Us</NavLink>
+          <p className="listItem">Profile</p>
         </div>
       </div>
     </nav>
