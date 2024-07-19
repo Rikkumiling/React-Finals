@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../Services/AuthService";
 import { getBudgetOnUID } from "../Services/BudgetService";
 import { getExpensesOnUID } from "../Services/ExpensesService";
 import { UserContext } from "../Contexts/UserContext";
-import Navbar from "./Navbar";
 
 // styling
-import "./home.css"
+import "./home.css";
 
 export default function Home() {
   const user = useContext(UserContext);
@@ -27,42 +26,35 @@ export default function Home() {
 
     fetchBudget();
     fetchExpenses();
-  }, []);
-
-  const handleLogout = async () => {
-    await logout();
-    navigate("/login");
-  };
+  }, [expenses, budget]);
 
   return (
     <>
-      <Navbar />
-<div className="homeContent">
-      <div className="budgetContainer">
-        <h1>Current Budget</h1>
-        {budget &&
-          budget.map((budget) => (
-            <div className="budget" key={budget.id}>
-              <p>{budget.initial_balance}</p>
-            </div>
-          ))}
+      <div className="homeContent">
+        <div className="budgetContainer">
+          <h1>Current Budget</h1>
+          {budget &&
+            budget.map((budget) => (
+              <div className="budget" key={budget.id}>
+                <p>PHP {budget.initial_balance}</p>
+              </div>
+            ))}
 
           <h1>Total Expenses</h1>
-      </div>
+        </div>
 
-      <div className="expensesContainer">
-        <h1>Expenses</h1>
-        {expenses &&
-          expenses.map((expense) => (
-            <div className="expense" key={expense.id}>
-              <h2>{expense.title}</h2>
-              <p>{expense.amount}</p>
-            </div>
-          ))}
+        <div className="expensesContainer">
+          <h1>Expenses</h1>
+          {expenses &&
+            expenses.map((expense) => (
+              <div className="expense" key={expense.id}>
+                <h2>{expense.title}</h2>
+                <p>PHP {expense.amount}</p>
+                <Link to={`/UpdateExpense/${expense.id}`}>Edit Expense</Link>
+              </div>
+            ))}
+        </div>
       </div>
-</div>
-
     </>
-    
   );
 }

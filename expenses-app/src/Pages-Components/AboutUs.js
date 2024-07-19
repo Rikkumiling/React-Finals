@@ -1,13 +1,11 @@
 import React from "react";
-import Navbar from "./Navbar";
 
 //styling
 import "./aboutUs.css";
 
 export default function AboutUs() {
   return (
-    <div>
-      <Navbar />
+    <div className="AboutUsContent">
       <section className="ABtext">
         <p>
           Welcome to Trotter, your go-to expenses tracking app designed to

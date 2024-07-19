@@ -7,6 +7,9 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import AboutUs from "./AboutUs";
+import Profile from "./Profile";
+import AddExpenseEntry from "./AddExpenseEntry";
+import UpdateExpenseEntry from "./UpdateExpenseEntry";
 
 export default function NavRoutes() {
   const { user } = useContext(UserContext);
@@ -17,6 +20,9 @@ export default function NavRoutes() {
       <Route path="/Register" element={<Register />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/AboutUs" element={<AboutUs />} />
+      <Route path="/Profile/:accId" element={<Profile />} />
+      <Route path="/AddExpense/:expId" element={<AddExpenseEntry />} />
+      <Route path="/UpdateExpense/:expId" element={<UpdateExpenseEntry />} />
     </Routes>
   );
 }
