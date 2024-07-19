@@ -3,7 +3,7 @@ import logo from "../Assets/logo.svg";
 import "./login.css";
 
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // do 'npm install react-router-dom' in terminal
+import { useNavigate, NavLink } from "react-router-dom"; // do 'npm install react-router-dom' in terminal
 import { login } from "../Services/AuthService";
 
 export default function Login() {
@@ -58,7 +58,7 @@ export default function Login() {
           {error && <p>{error}</p>}
         </form>
         <p id="regText">
-          Don't have an account? <button id="regBtn">Sign Up</button>
+          Don't have an account? <NavLink to="/Register"> Register </NavLink>
         </p>
       </div>
       <div>

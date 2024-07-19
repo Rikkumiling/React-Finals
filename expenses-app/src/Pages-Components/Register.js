@@ -1,61 +1,62 @@
 import React from "react";
 import "./login.css";
 
-import { useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase/config";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
+import { create_user } from "../Services/AuthService";
 
 export default function Register() {
-  const [login, setLogin] = useState(false);
-  const [username, setUsername] = useState("");
-  //test username: Rikku
-  const [password, setPassword] = useState("");
-  //test password: Test
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState("");
+  const navigate = useNavigate();
 
-  const Validate = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsPending(true);
     try {
-      const querySnapshot = await getDocs(collection(db, "accounts"));
-      querySnapshot.forEach((doc) => {
-        const userData = doc.data();
-        if (userData.username === username && userData.password === password) {
-          setLogin(true);
-          console.log("logged in");
-        } else {
-          alert("Invalid username or password");
-        }
-      });
-    } catch (error) {
-      console.error("Error fetching users:", error);
+      await create_user(emailRef.current.value, passwordRef.current.value);
+      alert("User Successfully made");
+      navigate("/");
+      setIsPending(false);
+    } catch (err) {
+      setError(err.message);
+      setIsPending(false);
     }
   };
 
   return (
     <section>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <input
             className="inputBox"
-            type="text"
-            value={username}
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
+            type="email"
+            placeholder="email"
+            ref={emailRef}
           ></input>
         </div>
         <div>
           <input
             className="inputBox"
-            type="text"
-            value={password}
+            type="password"
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            ref={passwordRef}
           ></input>
         </div>
-        <button className="loginBtn" onClick={Validate}>
-          Login
-        </button>
+        {!isPending && <button className="btn">sign up</button>}
+        {isPending && (
+          <button className="btn" disabled>
+            loading
+          </button>
+        )}
+        {error && <p>{error}</p>}
       </form>
+      <p>
+        Go back to <NavLink to="/Login">Login</NavLink>
+      </p>
     </section>
   );
 }
