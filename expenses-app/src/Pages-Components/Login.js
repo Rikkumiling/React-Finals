@@ -60,7 +60,11 @@ export default function Login() {
           {error && <p>{error}</p>}
         </form>
         <p id="regText">
-          Don't have an account? <NavLink id="regBtn" to="/Register"> Register </NavLink>
+          Don't have an account?{" "}
+          <NavLink id="regBtn" to="/Register">
+            {" "}
+            Register{" "}
+          </NavLink>
         </p>
       </div>
       <div className="loginText">

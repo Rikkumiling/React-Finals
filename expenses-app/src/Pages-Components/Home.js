@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../Services/AuthService";
 import { getBudgetOnUID } from "../Services/BudgetService";
 import { getExpensesOnUID } from "../Services/ExpensesService";
 import { UserContext } from "../Contexts/UserContext";
@@ -14,6 +13,10 @@ export default function Home() {
   const [expenses, setExpenses] = useState(null);
   const [budget, setBudget] = useState(null);
 
+  function handleAddExpense() {
+    navigate("/add");
+  }
+
   useEffect(() => {
     const fetchBudget = async () => {
       const docs = await getBudgetOnUID(user.user.uid);
@@ -26,7 +29,7 @@ export default function Home() {
 
     fetchBudget();
     fetchExpenses();
-  }, [expenses, budget]);
+  }, [user.user.uid]);
 
   return (
     <>
@@ -50,10 +53,11 @@ export default function Home() {
               <div className="expense" key={expense.id}>
                 <h2>{expense.title}</h2>
                 <p>PHP {expense.amount}</p>
-                <Link to={`/UpdateExpense/${expense.id}`}>Edit Expense</Link>
+                <Link to={`/edit/${expense.id}`}>Edit Expense</Link>
               </div>
             ))}
         </div>
+        <button onClick={handleAddExpense}>Add Expense</button>
       </div>
     </>
   );
