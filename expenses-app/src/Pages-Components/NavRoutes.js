@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from "react-router-dom"; // do 'npm install r
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
+import AboutUs from "./AboutUs";
 
 export default function NavRoutes() {
   const { user } = useContext(UserContext);
@@ -14,6 +15,8 @@ export default function NavRoutes() {
       <Route path="/" element={user ? <Home /> : <Login />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
+      <Route path="/Home" element={<Home />} />
+      <Route path="/AboutUs" element={<AboutUs />} />
     </Routes>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../Contexts/UserContext";
 import { logout } from "../Services/AuthService";
 
@@ -12,6 +12,11 @@ import "./navbar.css";
 export default function Navbar() {
   const user = useContext(UserContext);
   const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login");
+  };
   return (
     <nav className="navContainer">
       <div className="navBar">
@@ -20,9 +25,9 @@ export default function Navbar() {
           <h1>Trotter</h1>
         </div>
         <div className="navLinks">
-          <h1>Home</h1>
-          <h1>About Us</h1>
-          <h1>Logout</h1>
+          <NavLink to="/Home">Home</NavLink>
+          <NavLink to="/AboutUs">About Us</NavLink>
+          <Link onClick={handleLogout}>Logout</Link>
         </div>
       </div>
     </nav>
