@@ -11,7 +11,9 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../firebase/config";
-
+/**
+ *@param {string} amount
+ */
 const collectionName = "expenses";
 
 export const addExpense = async (expense) => {

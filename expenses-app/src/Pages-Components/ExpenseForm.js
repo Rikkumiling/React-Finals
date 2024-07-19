@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   updateExpense,
@@ -10,6 +10,7 @@ import { UserContext } from "../Contexts/UserContext";
 export default function ExpenseForm() {
   const titleRef = useRef();
   const amountRef = useRef();
+  const [amount, setAmount] = useState(0);
 
   const { expId } = useParams();
 
@@ -22,7 +23,7 @@ export default function ExpenseForm() {
     const updateEntry = {
       title: titleRef.current.value,
       UID: user.uid,
-      amount: amountRef.current.value,
+      amount: amount,
     };
     if (expId) {
       await updateExpense(expId, updateEntry);
@@ -31,6 +32,14 @@ export default function ExpenseForm() {
     }
 
     navigate("/Home");
+  };
+
+  const handleInputChange = () => {
+    const inputValue = amountRef.current.value;
+    const formattedNumber = parseInt(inputValue, 10);
+    if (!isNaN(formattedNumber)) {
+      setAmount(formattedNumber);
+    }
   };
 
   useEffect(() => {
@@ -45,7 +54,7 @@ export default function ExpenseForm() {
         }
       });
     }
-  }, []);
+  }, [expId, navigate]);
 
   return (
     <div>
@@ -55,7 +64,12 @@ export default function ExpenseForm() {
           <span>Title: </span>
           <input type="text" ref={titleRef} required></input>
           <span>Amount:</span>
-          <input type="number" ref={amountRef} required></input>
+          <input
+            type="number"
+            ref={amountRef}
+            onChange={handleInputChange}
+            required
+          ></input>
           <button className="btn">
             {!expId ? "Add Expense" : "Update Expense"}
           </button>

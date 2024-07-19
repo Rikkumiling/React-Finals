@@ -11,11 +11,19 @@ import edt from "../Assets/edit.svg";
 // styling
 import "./home.css";
 
+//Quick Hosting Instructions:
+// step 1: npm install -g firebase-tools
+// step 2: firebase login --no-localhost
+// step 3: firebase init
+// step 4: npm run build
+// step 5: firebase deploy
+
 export default function Home() {
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const [expenses, setExpenses] = useState(null);
   const [budget, setBudget] = useState(null);
+  const [totalExpense, setTotalExpense] = useState(0);
 
   function handleAddExpense() {
     navigate("/add");
@@ -23,6 +31,7 @@ export default function Home() {
 
   const handleDeleteExpense = async (id) => {
     await deleteExpense(id);
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -31,8 +40,14 @@ export default function Home() {
       setBudget(docs);
     };
     const fetchExpenses = async () => {
+      let total = 0;
       const docs = await getExpensesOnUID(user.user.uid);
       setExpenses(docs);
+      docs.forEach((doc) => {
+        total += doc.amount;
+        console.log(total);
+      });
+      setTotalExpense(total);
     };
 
     fetchBudget();
@@ -56,6 +71,7 @@ export default function Home() {
           </section>
           <section className="glass" id="total">
             <h1>Total Expenses</h1>
+            <p>PHP {totalExpense}</p>
           </section>
         </div>
 
@@ -75,7 +91,10 @@ export default function Home() {
                   <Link to={`/edit/${expense.id}`}>
                     <img className="edtBtn" src={edt} />
                   </Link>
-                  <button className="dltBtn" onClick={() => handleDeleteExpense(expense.id)}>
+                  <button
+                    className="dltBtn"
+                    onClick={() => handleDeleteExpense(expense.id)}
+                  >
                     <img className="dlt" src={dlt} />
                   </button>
                 </div>

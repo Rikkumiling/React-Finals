@@ -3,6 +3,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { create_user } from "../Services/AuthService";
+import { addBalance } from "../Services/BudgetService";
 
 //styling
 import "./login.css";
@@ -17,6 +18,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsPending(true);
+
     try {
       await create_user(emailRef.current.value, passwordRef.current.value);
       alert("User Successfully made");
