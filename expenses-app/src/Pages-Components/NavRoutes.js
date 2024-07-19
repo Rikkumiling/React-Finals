@@ -29,7 +29,7 @@ export default function NavRoutes() {
         <Route path="/addExpense/:expId" element={<AddExpenseEntry />} />
         <Route path="/edit/:expId" element={<ExpenseForm />} />
         <Route path="/add" element={<ExpenseForm />} />
-        <Route path="/*" element={<Navigate to="/" />} />
+        <Route path="/*" element={<Navigate to="/login" />} />
       </Routes>
     </>
   );
