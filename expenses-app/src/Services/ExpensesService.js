@@ -31,7 +31,7 @@ export const updateExpense = async (id, expense) => {
   }
 };
 
-export const deleteExpense = async (id, expense) => {
+export const deleteExpense = async (id) => {
   const ref = doc(db, collectionName, id);
   try {
     await deleteDoc(ref);

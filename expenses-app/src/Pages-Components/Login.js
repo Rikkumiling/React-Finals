@@ -10,6 +10,7 @@ import "./login.css";
 
 export default function Login() {
   const email = useRef(); // Test email: Rikku@email.com
+  // Test email#2: Register@email.com
   const password = useRef(); // Test Password: Testing
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);

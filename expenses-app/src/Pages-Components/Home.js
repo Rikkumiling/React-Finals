@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getBudgetOnUID } from "../Services/BudgetService";
 import { getExpensesOnUID } from "../Services/ExpensesService";
 import { UserContext } from "../Contexts/UserContext";
+import { deleteExpense } from "../Services/ExpensesService";
 
 // styling
 import "./home.css";
@@ -16,6 +17,10 @@ export default function Home() {
   function handleAddExpense() {
     navigate("/add");
   }
+
+  const handleDeleteExpense = async (id) => {
+    await deleteExpense(id);
+  };
 
   useEffect(() => {
     const fetchBudget = async () => {
@@ -54,6 +59,9 @@ export default function Home() {
                 <h2>{expense.title}</h2>
                 <p>PHP {expense.amount}</p>
                 <Link to={`/edit/${expense.id}`}>Edit Expense</Link>
+                <button onClick={() => handleDeleteExpense(expense.id)}>
+                  Delete Expense
+                </button>
               </div>
             ))}
         </div>
