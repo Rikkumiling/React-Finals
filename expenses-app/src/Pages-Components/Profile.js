@@ -20,8 +20,6 @@ export default function Profile() {
         <p>Username</p>
       </div>
       <div>
-        <p>Budget</p>
-        <p>Update Budget</p>
         <button className="btn" onClick={handleLogout}>
           Logout
         </button>

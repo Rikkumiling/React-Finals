@@ -1,4 +1,5 @@
 .profilePage {
+  height: 87vh;
   display: flex;
   padding-top: 3rem;
   align-items: center;
@@ -8,6 +9,7 @@
 
 #dp {
   width: 120px;
+  margin: 2rem;
   padding: 0.8rem;
   background-color: #fff;
   border-radius: 50%;

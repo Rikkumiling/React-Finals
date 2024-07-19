@@ -2,6 +2,7 @@
   display: flex;
   height: 100vh;
   margin: 2.5rem;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -66,6 +67,17 @@
   padding-top: 2rem;
 }
 
+.scroller {
+  height: 60vh;
+  padding-top: 0.5rem;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
 #expTitle {
   font-size: 2rem;
 }
@@ -81,6 +93,7 @@
   border: 3px solid rgba(131, 181, 255, 0.806);
   padding-top: 2rem;
   padding-bottom: 2rem;
+  margin-bottom: 1rem;
 
   display: flex;
   justify-content: space-between;

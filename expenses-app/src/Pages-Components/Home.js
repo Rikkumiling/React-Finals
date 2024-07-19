@@ -58,17 +58,6 @@ export default function Home() {
     <>
       <div className="homeContent">
         <div className="budgetContainer">
-          <section className="glass" id="current">
-            <h1>Current Budget</h1>
-            {budget &&
-              budget.map((budget) => (
-                <div className="budget" key={budget.id}>
-                  <p className="debit">
-                    PHP <span id="debitC">{budget.initial_balance}</span>
-                  </p>
-                </div>
-              ))}
-          </section>
           <section className="glass" id="total">
             <h1>Total Expenses</h1>
             <p>PHP {totalExpense}</p>
@@ -80,6 +69,7 @@ export default function Home() {
           <button className="btn" id="addExpBtn" onClick={handleAddExpense}>
             Add Expense
           </button>
+          <div className="scroller">
           {expenses &&
             expenses.map((expense) => (
               <div className="expense" key={expense.id}>
@@ -100,6 +90,7 @@ export default function Home() {
                 </div>
               </div>
             ))}
+            </div>
         </div>
       </div>
     </>

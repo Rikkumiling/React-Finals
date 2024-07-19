@@ -7,6 +7,9 @@ import {
 } from "../Services/ExpensesService";
 import { UserContext } from "../Contexts/UserContext";
 
+//styling
+import "./expenseForm.css";
+
 export default function ExpenseForm() {
   const titleRef = useRef();
   const amountRef = useRef();
@@ -57,14 +60,15 @@ export default function ExpenseForm() {
   }, [expId, navigate]);
 
   return (
-    <div>
+    <div className="content2">
       <div>
-        <h1>{!expId ? "Add Expense" : "Update Expense"}</h1>
+        <h1 id="addTitle">{!expId ? "Add Expense" : "Update Expense"}</h1>
         <form onSubmit={handleUpdate}>
           <span>Title: </span>
-          <input type="text" ref={titleRef} required></input>
+          <input className="inputBox" type="text" ref={titleRef} required></input>
           <span>Amount:</span>
           <input
+            className="inputBox"
             type="number"
             ref={amountRef}
             onChange={handleInputChange}

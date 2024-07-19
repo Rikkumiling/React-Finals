@@ -1,0 +1,28 @@
+.content2 {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url("../Assets/bg2.svg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  #addTitle {
+    color: #1A2130;
+  }
+
+  .inputBox {
+    outline: none;
+    border: none;
+    margin-bottom: 1.5rem;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000000;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 0.8rem;
+    width: 100%;
+    background: #faf8f6;
+  }

@@ -1,5 +1,8 @@
 .ABtext {
-  width: 90vw;
+  width: 80vw;
+  height: 100vh;
+  margin: auto;
+  padding-top: 2rem;
   color: #0d0d0d;
   margin-top: 2vh;
 }

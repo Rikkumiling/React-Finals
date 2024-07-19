@@ -12,8 +12,6 @@
 }
 
 body {
-  overflow: hidden;
-  overflow-y: scroll;
   color: #faf8f6;
   font-family: myfont;
   letter-spacing: 2px;
