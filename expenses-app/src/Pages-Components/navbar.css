@@ -32,12 +32,14 @@
 
 .title {
   display: flex;
+  align-items: center;
 }
 
 .title h1 {
   font-size: 2rem;
   padding-left: 1rem;
-  align-content: center;
+  align-self: center;
+  margin-top: 15px;
 }
 
 .navLinks {
@@ -56,9 +58,9 @@
 }
 
 .listItem:hover{
-  color: #83B4FF;
+  color: #ffcf40;
   padding-bottom: 0.25rem;
-  border-bottom: 3px solid #83B4FF;
+  border-bottom: 3px solid #ffcf40;
 }
 
 /* Animations */

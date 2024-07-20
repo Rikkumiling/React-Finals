@@ -20,7 +20,7 @@ export default function Profile() {
         <p>Username</p>
       </div>
       <div>
-        <button className="btn" onClick={handleLogout}>
+        <button className="btn" id="logout" onClick={handleLogout}>
           Logout
         </button>
       </div>

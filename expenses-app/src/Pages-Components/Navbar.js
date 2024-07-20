@@ -10,7 +10,7 @@ import logo from "../Assets/logo.svg";
 import "./navbar.css";
 
 export default function Navbar() {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogout = async () => {

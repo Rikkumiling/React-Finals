@@ -19,6 +19,9 @@ export default function AboutUs() {
         <p>
           Be it traversing the stars or collecting debt, Trotter will be here.
         </p>
+        <p>
+          For the Amber Lord. -Topaz
+        </p>
       </section>
     </div>
   );

@@ -1,5 +1,5 @@
 .profilePage {
-  height: 87vh;
+  height: 100vh;
   display: flex;
   padding-top: 3rem;
   align-items: center;
@@ -13,4 +13,8 @@
   padding: 0.8rem;
   background-color: #fff;
   border-radius: 50%;
+}
+
+.btn::before#logout{
+  background-color: rgb(216, 62, 62);
 }
